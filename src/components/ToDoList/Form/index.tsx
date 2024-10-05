@@ -1,11 +1,17 @@
+import styles from "./Form.module.css";
+
 const Form = (props: { addTodo: (event: any) => void }) => {
   return (
-    <form onSubmit={props.addTodo}>
-      <label>
-        ToDo:
-        <input type="text" name="todo" />
-      </label>
-      <button type="submit">Add</button>
+    <form onSubmit={props.addTodo} className={styles.form}>
+      <input
+        type="text"
+        name="todo"
+        placeholder="Insert TODO"
+        className={`${styles.input} ${styles.placeholder}`}
+      />
+      <button type="submit" className={styles.button}>
+        Add
+      </button>
     </form>
   );
 };

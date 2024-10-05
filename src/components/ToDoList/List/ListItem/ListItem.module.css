@@ -1,8 +1,41 @@
 .item {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid black;
+  /* border-left: 10px solid black; */
+}
+
+.item-content {
+  display: flex;
   column-gap: 20px;
+  padding: 10px 10px 10px 10px;
+}
+
+.item:last-of-type {
+  border-bottom: 1px solid black;
 }
 
 .checked-item {
+  /* border-left: 10px solid green; */
+  /* background: rgba(0, 100, 0, 0.1); */
   color: green;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+
+.button:hover {
+  cursor: pointer;
 }

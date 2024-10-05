@@ -1,5 +1,6 @@
 import { Item } from "..";
 import ListItem from "./ListItem";
+import styles from "./List.module.css";
 
 const List = ({
   todoList,
@@ -11,7 +12,7 @@ const List = ({
   toggleStatus: (index: number) => void;
 }) => {
   return (
-    <ul>
+    <ul className={styles.list}>
       {todoList.map((todo, index) => {
         return (
           <ListItem

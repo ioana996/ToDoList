@@ -1,0 +1,11 @@
+.todolist {
+  display: flex;
+  flex-direction: column;
+  margin: 80px;
+}
+
+.buttons {
+  display: flex;
+  column-gap: 10px;
+  justify-content: end;
+}

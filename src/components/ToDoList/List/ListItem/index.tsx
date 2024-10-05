@@ -1,4 +1,6 @@
 import { Item } from "../..";
+import IconDeleteOutline from "../../../../assets/icons/Delete";
+import IconCheckCircle from "../../../../assets/icons/Done";
 import styles from "./ListItem.module.css";
 
 const ListItem = ({
@@ -23,18 +25,33 @@ const ListItem = ({
 
   return (
     <li
-      key={item.content + index}
-      className={`${item.done ? styles["checked-item"] : ""} ${styles.item}`}
+      className={`${styles["item"]} ${item.done ? styles["checked-item"] : ""}`}
     >
-      <input
-        type="checkbox"
-        name="checkbox"
-        onChange={() => toggleStatus(index)}
-        checked={item.done}
-      />
-      {item.content}
-      <span>{item.date?.toLocaleDateString("en-us", dateOptions)}</span>
-      <span onClick={() => removeTodo(index)}>X</span>
+      <div
+        key={item.content + index}
+        className={styles["item-content"]}
+        // onClick={() => toggleStatus(index)}
+      >
+        {/* <input
+          type="checkbox"
+          name="checkbox"
+          onChange={() => toggleStatus(index)}
+          checked={item.done}
+        /> */}
+        {item.content}
+        <span>{item.date?.toLocaleDateString("en-us", dateOptions)}</span>
+      </div>
+      <div className={styles.buttons}>
+        <IconCheckCircle
+          onClick={() => toggleStatus(index)}
+          checked={item.done}
+          className={`${item.done ? styles["checked-item"] : ""}`}
+        />
+        <IconDeleteOutline
+          onClick={() => removeTodo(index)}
+          className={styles.button}
+        />
+      </div>
     </li>
   );
 };

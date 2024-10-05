@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  width: 100%;
+}
+.input {
+  border: 2px;
+  border-color: #545049;
+  border-style: dashed solid;
+  border-radius: 6px;
+  padding: 20px 10px;
+  font-size: 20px;
+  flex: 80%;
+}
+.button {
+  flex: 20%;
+  background: rgba(0, 100, 0, 0.1);
+  border: none;
+}
+::placeholder {
+  color: #545049;
+}
