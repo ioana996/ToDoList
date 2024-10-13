@@ -19,19 +19,23 @@ const defaultItem: Item = { content: "", done: false, date: new Date() };
 const ToDoList = (props: {
   todoList: ToDoListProps;
   removeTodoList: () => void;
+  updateListItems: (items: Item[]) => void;
 }) => {
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useState<Item[]>(props.todoList.items);
   const doneItems = items.filter((e) => e.done === true);
 
   const addTodo = (event: any) => {
     event.preventDefault();
     const value = event.target[0].value;
     if (!value) return;
-    event.preventDefault();
-    setItems((prevList) => [
-      ...prevList,
-      { ...defaultItem, content: value, date: new Date() },
-    ]);
+    setItems((prevList) => {
+      const itemList = [
+        ...prevList,
+        { ...defaultItem, content: value, date: new Date() },
+      ];
+      props.updateListItems(itemList);
+      return itemList;
+    });
     event.target.reset();
   };
   const removeTodo = (index: number) => {
@@ -62,12 +66,6 @@ const ToDoList = (props: {
 
     setItems(tempItems);
   };
-
-  // const createList = (event: FormEvent) => {
-  //   event.preventDefault();
-  //   const input = (event.target as HTMLFormElement)[0] as HTMLInputElement;
-  //   setTitle(input.value);
-  // };
 
   return (
     <div className={styles["todolist"]}>
