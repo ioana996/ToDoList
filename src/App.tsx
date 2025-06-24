@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import ToDoList, { Item, ToDoListProps } from "./components/ToDoList";
-import CreateList from "./components/CreateList";
+import CreateListForm from "./components/CreateListForm";
 
 const LOCAL_STORAGE_LIST_KEY = "todoList";
 function App() {
@@ -74,7 +74,7 @@ function App() {
       updateListItems={updateListItems}
     />
   ) : (
-    <CreateList createList={createList} />
+    <CreateListForm createList={createList} />
   );
 }
 
